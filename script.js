@@ -1,3 +1,4 @@
+//hold todo list and related todo list methods in an object
 let todoList = {
   todos: ['item1', 'item2', 'item3'],
 
