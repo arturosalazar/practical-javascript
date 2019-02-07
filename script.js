@@ -1,9 +1,23 @@
 //hold todo list and related todo list methods in an object
 let todoList = {
   todos: [],
-
+  //console.log the todoText for each element in our array of todos
+  //display if the todo is completed or not
   displayTodos: function() {
-    console.log(`My Todos: `, this.todos);
+    //test if array is empty
+    if (this.todos.length === 0) {
+      console.log(`You don't have any todos!`);
+    } else {
+      console.log("My todos:");
+      for (let todo of this.todos) {
+        //change display depending on if the todo is completed
+        if (todo.completed === true) {
+          console.log(`(X) ${todo.todoText}`);
+        } else {
+          console.log(`( ) ${todo.todoText}`);
+        }
+      }
+    }
   },
   //update to add a todo object with text + completed property instead of just text
   addTodo: function(todoText) {
