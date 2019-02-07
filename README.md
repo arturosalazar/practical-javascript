@@ -1,2 +1,5 @@
 # practical-javascript
-A collection to hold my code for Practical JavaScript
+
+A collection to hold my working code for Practical JavaScript
+
+Practical JavaScript - https://watchandcode.com/p/practical-javascript
