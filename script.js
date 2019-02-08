@@ -44,5 +44,42 @@ let todoList = {
     let todo = this.todos[position];
     todo.completed = !todo.completed;
     this.displayTodos();
+  },
+  //if everything is true, make everything false
+  //else make everything true
+  toggleAll: function() {
+    let todos = this.todos;
+    let completedTodos = 0;
+    for (let todo of todos) {
+      if (todo.completed === true) {
+        completedTodos++;
+      }
+    }
+    if (completedTodos === todos.length) {
+      for (let todo of todos) {
+        todo.completed = false;
+      }
+    } else {
+      for (let todo of todos) {
+        todo.completed = true;
+      }
+    }
+    this.displayTodos();
   }
 };
+
+//get reference to the display todos button with getElementById
+let displayTodosButton = document.getElementById('displayTodosButton');
+
+//run displayTodos() function when button clicked
+displayTodosButton.addEventListener('click',function(){
+  todoList.displayTodos();
+})
+
+//get ref to the toggle all button
+let toggleAllButton = document.getElementById('toggleAllButton');
+
+//run toggleAll() function when button clicked
+toggleAllButton.addEventListener('click',function(){
+  todoList.toggleAll();
+})
