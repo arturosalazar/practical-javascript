@@ -68,18 +68,19 @@ let todoList = {
   }
 };
 
-//get reference to the display todos button with getElementById
-let displayTodosButton = document.getElementById('displayTodosButton');
-
-//run displayTodos() function when button clicked
-displayTodosButton.addEventListener('click',function(){
-  todoList.displayTodos();
-})
-
-//get ref to the toggle all button
-let toggleAllButton = document.getElementById('toggleAllButton');
-
-//run toggleAll() function when button clicked
-toggleAllButton.addEventListener('click',function(){
-  todoList.toggleAll();
-})
+//handlers object to hold all code to respond to events on buttons
+let handlers = {
+  displayTodos: function (){
+    todoList.displayTodos();
+  },
+  toggleAll: function (){
+    todoList.toggleAll();
+  },
+  addTodo: function (){
+    //get value from input textbox and pass it to addTodo method to run
+    let addTodosTextInput = document.getElementById('addTodosTextInput');
+    todoList.addTodo(addTodosTextInput.value);
+    //clear text box when done with running method
+    addTodosTextInput.value = ''
+  }
+}
