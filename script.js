@@ -70,17 +70,34 @@ let todoList = {
 
 //handlers object to hold all code to respond to events on buttons
 let handlers = {
-  displayTodos: function (){
+  displayTodos: function() {
     todoList.displayTodos();
   },
-  toggleAll: function (){
-    todoList.toggleAll();
-  },
-  addTodo: function (){
+  addTodo: function() {
     //get value from input textbox and pass it to addTodo method to run
     let addTodosTextInput = document.getElementById('addTodosTextInput');
     todoList.addTodo(addTodosTextInput.value);
     //clear text box when done with running method
-    addTodosTextInput.value = ''
+    addTodosTextInput.value = '';
+  },
+  changeTodo: function() {
+    let changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+    let changeTodoTextInput = document.getElementById('changeTodoTextInput');
+    todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+    changeTodoPositionInput.value = '';
+    changeTodoTextInput.value = '';
+  },
+  deleteTodo: function() {
+    let deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+    deleteTodoPositionInput.value = '';
+  },
+  toggleCompleted: function() {
+    let toggleTodoPositionInput = document.getElementById('toggleTodoPositionInput');
+    todoList.toggleCompleted(toggleTodoPositionInput.valueAsNumber);
+    toggleTodoPositionInput.value = '';
+  },
+  toggleAll: function() {
+    todoList.toggleAll();
   }
 }
