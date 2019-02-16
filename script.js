@@ -100,4 +100,17 @@ let handlers = {
   toggleAll: function() {
     todoList.toggleAll();
   }
+};
+
+//view object to hold all code related to displaying information to screen
+let view = {
+  //display same number of li elements as todos in todos array
+  displayTodos: function() {
+    let todosUl = document.querySelector('ul');
+    todosUl.innerHTML = '';
+    for (i = 0; i < todoList.todos.length; i++) {
+      let todoLi = document.createElement('li');
+      todosUl.appendChild(todoLi);
+    }
+  }
 }
