@@ -1,4 +1,4 @@
-//hold todo list and related todo list methods in an object
+//todoList object to hold list array and related todo list methods
 let todoList = {
   todos: [],
   //add a todo object with text + completed property instead of just text
@@ -97,13 +97,24 @@ let view = {
 
       //add appropriate text to show if the todo has been completed.
       if (todo.completed === true) {
-        todoTextWithCompletion = `(X) ${todo.todoText}`;
+        todoTextWithCompletion = `(X) ${todo.todoText} `;
       } else {
-        todoTextWithCompletion = `( ) ${todo.todoText}`;
+        todoTextWithCompletion = `( ) ${todo.todoText} `;
       }
-
+      
+      //give each todo a unique id
+      todoLi.id = i;
       todoLi.textContent = todoTextWithCompletion;
+      //add a delete button to each todo
+      todoLi.appendChild(this.createDeleteButton());
       todosUl.appendChild(todoLi);
     }
+  },
+  //create a delete button to add to our program
+  createDeleteButton: function() {
+    let deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'deleteButton';
+    return deleteButton;
   }
 }
